@@ -18,19 +18,21 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 	position: absolute;
 	background-size:cover;
 	background-repeat:no-repeat;
-	background-position:center;
+	background-position:right;
 	width: 300px;
 	height: 250px;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+	
 }
 #nextBackground{
-	position: absolute;
+	position: relative;
 	background-size:cover;
 	background-repeat:no-repeat;
-	background-position:center;
+	background-position:right;
+	padding: 10%;
 	width: 300px;
 	height:250px;
 	left:300px;
@@ -56,21 +58,24 @@ span{
 .logo{
 	/* left: -100%; */
 	bottom: 1rem;
-	}
- 
+}
 .button{
-	opacity: 0;
+		opacity: 0;
+}
+ 
+#button{
+	
 	position:absolute;
 	bottom: 0.3rem;
 }
 .logo img{
 	width: 7rem;
-
 }
-#text{
+#text,#textNext, #secondText{
 	padding:10%;
 	position: absolute;
-	top: 1rem;
-	left: 120%;
+	top: 0.5rem;
+	left: 210%;
 	width: 100%;
 }
+
