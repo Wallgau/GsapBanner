@@ -25,6 +25,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
   left: 0;
   right: 0;
   bottom: 0;
+	border:none;
 	
 }
 #nextBackground{

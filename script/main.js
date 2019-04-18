@@ -83,7 +83,7 @@ function displayPage3() {
 			.set(logoNext, { left: 1000 + `px`, delay: 1, immediateRender: false })
 			.set(textNext, { left: 200 + `%`, delay: 1 })
 			.to(nextBackground, 1, { x: - 300, ease: Power4.easeInOut, delay: -3 })
-			.to(logoNext, 0.4, { opacity: 1, left: -100, delay: -1.5, ease: Bounce.easeInOut })
+			.to(logoNext, 0.4, { opacity: 1, left: -100, delay: -1.5, ease: Power4.easeInOut })
 			.to(textNext, 0.4, { opacity: 1, left: 5, ease: Bounce.easeOut, delay: -1 })
 
 
@@ -92,7 +92,7 @@ function displayPage3() {
 }
 function displayPage4() {
 	setTimeout(function () {
-		figure.style.backgroundImgae = images[2].img;
+
 		textNext.style.backgroundImage = images[3].text1;
 		secondText.style.backgroundImage = images[3].text2;
 		nextBackground.style.backgroundImage = images[3].img;
