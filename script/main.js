@@ -51,9 +51,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function displayPage1() {
 	text.style.backgroundImage = images[0].text;
-	figure.style.backgroundImage = images[0].img;
+	textAndLogo.style.backgroundImage = images[0].img;
 	tl
-		.to(logo, 0.5, { left: -1000 }).to(logo, 0.5, { left: 20 }).to(text, 0.5, { left: 5, delay: 0.8 }, figure, 0.5, { left: 0 })
+		.to(logo, 0.5, { left: -1000 }).to(logo, 0.5, { left: 20 }).to(text, 0.5, { left: 5, delay: 0.8 }, textAndLogo, 0.5, { left: 0 })
 
 }
 
@@ -92,7 +92,6 @@ function displayPage3() {
 }
 function displayPage4() {
 	setTimeout(function () {
-
 		textNext.style.backgroundImage = images[3].text1;
 		secondText.style.backgroundImage = images[3].text2;
 		nextBackground.style.backgroundImage = images[3].img;

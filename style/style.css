@@ -11,6 +11,8 @@ article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary
 	height:250px;
 	overflow:hidden;
 	display:flex;
+	border:none;
+
 	
 }
 
