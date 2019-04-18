@@ -1,6 +1,7 @@
 const tl = new TimelineLite();
 const tw = new TweenLite.lagSmoothing();
 const text = document.getElementById('text');
+const figure = document.getElementById('figure');
 const textAndLogo = document.getElementById('textAndLogo');
 const nextBackground = document.getElementById('nextBackground')
 const logo = document.getElementById('logo');
@@ -15,7 +16,7 @@ const images = [{
 	text: `url('./images/text1.png')`
 },
 {
-	img: `url('images/image2.jpg')`,
+	img: `url('images/imageBanner.png')`,
 	alt: "kids on the front side car",
 	class: 'page2',
 	text: `url('./images/text2.png')`
@@ -39,10 +40,10 @@ const images = [{
 
 document.addEventListener('DOMContentLoaded', function () {
 	TweenLite.lagSmoothing(1000, 16);
-displayPage1();
+	displayPage1();
 	displayPage2();
 	displayPage3();
-  displayPage4();
+	displayPage4();
 
 
 
@@ -50,9 +51,9 @@ displayPage1();
 
 function displayPage1() {
 	text.style.backgroundImage = images[0].text;
-	textAndLogo.style.backgroundImage = images[0].img;
+	figure.style.backgroundImage = images[0].img;
 	tl
-		.to(logo, 0.5, { left: -1000 }).to(logo, 0.5, { left: 20 }).to(text, 0.5, { left: 5, delay: 0.8 }, textAndLogo, 0.5, { left: 0 })
+		.to(logo, 0.5, { left: -1000 }).to(logo, 0.5, { left: 20 }).to(text, 0.5, { left: 5, delay: 0.8 }, figure, 0.5, { left: 0 })
 
 }
 
@@ -62,33 +63,31 @@ function displayPage2() {
 		textAndLogo.style.backgroundImage = images[1].img;
 		tl
 			.set(textAndLogo, { opacity: 0, left: 0 })
-			.set(logo, { opacity: 0, left: -1000 })
-			.set(text, { opacity: 0, left: 1000 })
+			.set(logo, { left: -1000 + `px`, immediateRender: false })
+			.set(text, { opacity: 0, left: 1000 + `px` })
 			.to(textAndLogo, 1.5, { opacity: 1 })
-			.to(logo, 0.5, { opacity: 1, left: 20, delay: -0.5 })
-			.to(text, 0.5, { opacity: 1, left: 5,ease:Back.easeInOut, delay: -0.6  })
-			.to(textAndLogo, 1, { left: -300 + `px`, delay: 1 })
+			.to(logo, 0.5, { left: 20 })
+			.to(text, 0.5, { opacity: 1, left: 5, ease: Back.easeInOut, delay: -0.6 })
+			.to(textAndLogo, 1, { left: -300 + `px`, ease: Power4.easeInOut, delay: 1 })
 
 	}, 2000);
 }
 
 function displayPage3() {
 	setTimeout(function () {
-		nextBackground.style.backgroundImage = images[2].img;
+		nextBackground.style.backgroundImage = images[1].img;
 		textNext.style.backgroundImage = images[2].text;
-		nextBackground.style.backgroundImage = images[2].img;
 		tl
 			.set(nextBackground, { left: 100 + `%` }, 0)
-			.set(logoNext, { opacity: 0, delay: -3 })
-			.set(logoNext, { left: -1000, delay: 1 })
+			.set(logoNext, { left: -1000 + `px`, delay: 1, immediateRender: false })
 			.set(textNext, { left: 200 + `%`, delay: 1 })
-			.to(nextBackground, 1, { x: - 300, delay: -3 })
-			.to(logoNext, 0.5, { opacity: 1, left: 20, delay: 0 })
-			.to(textNext, 0.5, { left: 5, ease:Bounce.easeOut, delay: 0 })
-			.to($('.slide'), 1, { x: -300 })
+			.to(nextBackground, 1, { x: - 300, ease: Power4.easeInOut, delay: -3 })
+			.to(logoNext, 0.4, { /* opacity: 1,  */left: 20, delay: -1.5 })
+			.to(textNext, 0.4, { opacity: 1, left: 5, ease: Bounce.easeOut, delay: -1 })
 
 
-	}, 4000);
+
+	}, 3000);
 }
 function displayPage4() {
 	setTimeout(function () {
@@ -98,18 +97,22 @@ function displayPage4() {
 
 		tl
 
-			.set(logoNext, { opacity: 0, left: -1000, delay: -3 })
-			.set(textNext, { opacity: 0, delay: 1.3 })
-			.set(secondText, { opacity: 0,top: -1000 + `%`, delay: 1.3 })
-			.set(nextBackground, {backgroundPosition:"100% 0", scale:3, delay: -3 })
-			.to(textNext, 2, { top: 5, opacity: 1, delay: 3 })
-			.to(secondText, 0.5, { opacity: 1,left: 4, top: 20, delay: 3 })
-			.to(nextBackground, 0.5, { backgroundPosition:"center",scale: 1, delay: -3})
-			.to(logoNext, 0.5, { opacity: 1, left: 20, delay: 1 })
-			.to(button,1,{opacity:1, right: 20})
-			.to([button,textNext],2,{rotationY:15,z:100,yoyo:true, repeat:200, delay: 0.5})
+			.set(logoNext, { left: -1000, delay: -1, immediateRender: false })
+			.set(secondText, { top: -1000 + `%`, delay: 1.3 })
+			.to(nextBackground, 0.8, { backgroundColor: `rbga(25, 30, 0, 0.5)`, immediateRender: true })
+			.set(nextBackground, {
+				transformOrigin: "right", scale: 2, ease: Power4.easeInOut, delay: -6, immediateRender: true
+			})
+			.to(textNext, 0.3, { top: 5, left: 5, opacity: 1, delay: 1 })
+			.to(secondText, 0.3, { opacity: 1, left: 4, top: 20, delay: 2 })
+			.to(nextBackground, 3, { scale: 1, ease: Power4.easeInOut, delay: -6 })
+			.to(logoNext, 0.5, { /* opacity: 1, */ left: 20, delay: 1 })
+			.to(button, 1, { opacity: 1, right: 20 })
+			.to([button, textNext], 2, { rotationY: 15, z: 100, yoyo: true, repeat: 2, delay: 0.5 });
 
-	}, 9500);
+
+
+	}, 9200);
 }
 
 
