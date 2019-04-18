@@ -82,7 +82,7 @@ function displayPage3() {
 			.set(logoNext, { left: -1000 + `px`, delay: 1, immediateRender: false })
 			.set(textNext, { left: 200 + `%`, delay: 1 })
 			.to(nextBackground, 1, { x: - 300, ease: Power4.easeInOut, delay: -3 })
-			.to(logoNext, 0.4, { /* opacity: 1,  */left: 20, delay: -1.5 })
+			.to(logoNext, 0.4, { opacity: 1, left: 20, delay: -1.5 })
 			.to(textNext, 0.4, { opacity: 1, left: 5, ease: Bounce.easeOut, delay: -1 })
 
 
@@ -109,6 +109,17 @@ function displayPage4() {
 			.to(logoNext, 0.5, { /* opacity: 1, */ left: 20, delay: 1 })
 			.to(button, 1, { opacity: 1, right: 20 })
 			.to([button, textNext], 2, { rotationY: 15, z: 100, yoyo: true, repeat: 2, delay: 0.5 });
+		$("#button").hover(redOver, redOut);
+		function redOver() {
+			TweenMax.to("#button", 1, {
+				className: "+=redGlow"
+			})
+		}
+		function redOut() {
+			TweenMax.to("#button", 1, {
+				className: "-=redGlow",
+			}, "+=1");
+		}
 
 
 

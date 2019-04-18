@@ -63,13 +63,8 @@ span{
 }
 
  
-#button{
-	position:absolute;
-	bottom: 0.3rem;
-}
-#button:hover{
-	background: rgba(248, 210, 210, 0.13);
-}
+
+
 .logo img{
 	width: 7rem;
 }
@@ -80,7 +75,23 @@ span{
 	left: 210%;
 	width: 100%;
 }
-/* .shine:hover{
-	background: rgba(255, 255, 255, 0.13);
-} */
+#button{
+	position:absolute;
+	bottom: 0.7rem;
+	
+}
+#button img{
+	
+  color:#FF1177;
+  font-family: Monoton;
+  box-shadow: 0 0 0 #fff, 0 0 0 #fff, 0 0 0 #fff, 0 0 0 #FF1177, 0 0 0 #FF1177, 0 0 0 #FF1177, 0 0 0 #FF1177, 0 0 0 #FF1177;
+}
+
+#button.redGlow img:hover {
+  color: #ffffff;
+	background:#b01a1f;
+	border-radius:5px;
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF1177, 0 0 35px #FF1177, 0 0 40px #FF1177, 0 0 50px #FF1177, 0 0 75px #FF1177;
+}
+
 
